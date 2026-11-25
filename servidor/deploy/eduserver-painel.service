@@ -1,0 +1,31 @@
+# Serviço do painel frontal do eduServer Box. Instalado por deploy/instalar.sh.
+#
+#   systemctl status eduserver-painel
+#   journalctl -u eduserver-painel -f
+#   journalctl -u eduserver-painel -o short-iso > bancada.log   (relatório do T-BANC)
+
+[Unit]
+Description=Painel frontal do eduServer Box (tela, RFID, buzzer, LED do botão)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=eduserver-painel
+SupplementaryGroups=dialout
+ExecStart=/opt/eduserver-painel/venv/bin/eduserver-painel rodar --config /etc/eduserver-painel/config.toml
+Restart=always
+RestartSec=5
+# Ao desligar, o serviço mostra "desligando" e o LED respira; 10 s bastam.
+TimeoutStopSec=10
+
+# O serviço só lê o estado do sistema e fala com a porta serial.
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+
+[Install]
+WantedBy=multi-user.target

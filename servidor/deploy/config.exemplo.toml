@@ -1,0 +1,23 @@
+# Configuração do painel do eduServer Box. Todas as chaves são opcionais; os valores
+# abaixo são os de fábrica. No servidor: /etc/eduserver-painel/config.toml
+
+[serial]
+# "auto" procura /dev/eduserver-painel (regra udev) e depois um chip conhecido
+# (CH340, Arduino, FTDI). No Windows, use a COM do Nano: eduserver-painel portas
+porta = "auto"
+baud = 115200
+
+[painel]
+intervalo_s = 2.0     # batida e atualização da tela; o Nano desiste depois de 6 s sem nada
+brilho = 200          # luz de fundo da tela, 0 a 255
+disco = "/"           # disco mostrado na tela (no Windows: "C:\\")
+reconectar_s = 3.0    # espera antes de tentar de novo quando o Nano some
+
+[alertas]
+temp_aviso = 60.0         # °C: temperatura fica amarela
+temp_alerta = 75.0        # °C: vermelha e bipe
+bipe_intervalo_s = 60.0   # no máximo um bipe de alerta por minuto
+
+[log]
+arquivo = ""   # vazio: só no journal (systemd) ou na tela
+nivel = "INFO"

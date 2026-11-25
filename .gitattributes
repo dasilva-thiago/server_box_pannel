@@ -1,0 +1,7 @@
+* text=auto
+
+# Arquivos que vão para o Linux do servidor: sempre LF, mesmo clonados no Windows.
+*.sh text eol=lf
+*.service text eol=lf
+*.rules text eol=lf
+*.toml text eol=lf

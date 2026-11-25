@@ -1,0 +1,12 @@
+# Regra udev do painel do eduServer Box. Instalada em /etc/udev/rules.d/ por instalar.sh.
+#
+# 1. Dá um nome fixo à porta do Nano: /dev/eduserver-painel (o serviço procura por ele).
+# 2. Manda o ModemManager deixar a porta em paz (ele manda comandos de modem para
+#    qualquer porta serial nova, e o Nano receberia lixo).
+#
+# O CH340 tem o mesmo identificador (1a86:7523) em qualquer clone. Se outro aparelho
+# com CH340 for ligado, troque a regra pela posição física no hub, depois do T-BANC:
+#   udevadm info -q property -n /dev/ttyUSB0 | grep ID_PATH=
+#   SUBSYSTEM=="tty", ENV{ID_PATH}=="<o valor de cima>", SYMLINK+="eduserver-painel", ...
+
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", SYMLINK+="eduserver-painel", ENV{ID_MM_DEVICE_IGNORE}="1", GROUP="dialout", MODE="0660"
