@@ -57,3 +57,4 @@ O passo a passo completo, um módulo por vez, está em
 - [02 Pinagem](docs/02_pinagem.md): ligação de cada fio, com os divisores de tensão
 - [03 Telas](docs/03_telas.md): o que aparece na tela, e onde
 - [04 Bancada](docs/04_bancada.md): testes módulo a módulo e o T-BANC de 48 h
+- [05 Decisões](docs/05_decisoes.md): as decisões do software (S-1, S-2…), separadas das da caixa

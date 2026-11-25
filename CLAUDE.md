@@ -13,6 +13,8 @@ hardware: `docs/04_interfaces_eletricas.md` (pinagem, documento mestre),
    `servidor/src/eduserver_painel/protocolo.py`) e muda os dois lados e os testes.
 3. `docs/02_pinagem.md`: cópia da pinagem do `server_box/docs/04` §4a. Mudou lá, muda
    aqui e no `firmware/include/pinos.h`.
+4. `docs/05_decisoes.md`: decisões do software (S-n). Toda decisão nova de software entra
+   ali (contexto, decisão, consequência); decisão de hardware vai para o `server_box`.
 
 ## Regras
 - **Fale com o usuário em português do Brasil.** Código, comentários e documentos em
