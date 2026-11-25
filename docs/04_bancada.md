@@ -1,6 +1,6 @@
 # 04 · Bancada (fase 1B do server_box)
 
-**Revisão S1 (25/11/2026).** Um módulo por vez, na protoboard grande. Só passe para o
+**Revisão S2 (25/11/2026: aponta o guia de solda do `server_box` na tela e no RFID).** Um módulo por vez, na protoboard grande. Só passe para o
 próximo quando o anterior funcionar. A ligação de cada fio está no
 [02_pinagem.md](02_pinagem.md).
 
@@ -38,6 +38,10 @@ Grave `t_buzzer` e abra o monitor (`pio device monitor`). A cada 3 s, um padrão
 
 ## 3. T-TELA
 
+**Antes:** os pinos da tela vêm soltos. Solde a barra **em 90°** (a reta vai no RFID) pelo
+guia de solda do `server_box`: `docs/11_guia_de_solda.md` §4 (corpo nas costas, solda do
+lado do vidro, fita crepe na borda do vidro).
+
 Monte o regulador e os divisores da tela (D13, D11, D8, D7, D6 e D3) como no
 [02_pinagem.md](02_pinagem.md). Grave `t_tela`.
 
@@ -52,6 +56,9 @@ o brilho sobe; o contador anda sem falhar por 10 min.
 | Imagem com riscos ou falhas | Baixe `TELA_SPI_HZ` para 4000000 (os divisores deixam o sinal mais lento) |
 
 ## 4. T-RFID
+
+**Antes:** solde a barra **reta** no RFID (corpo do lado sem a antena, pinos para trás) pelo
+mesmo guia, §3.
 
 Sem desmontar a tela, ligue o RFID (divisores em D10 e D9; SCK e MOSI pegam os mesmos
 divisores da tela; MISO direto no D12). Grave `t_rfid`.
